@@ -34,7 +34,18 @@ describe('The Travelers Model', () => {
 
             const traveler = await db('travelers');
             expect(traveler.id).toBe(undefined);
-        })
+        });
+
+        it('should add two travelers, delete one and only have one traveler listed', async () => {
+            await Travelers.insert({ name: 'Juan'});
+            const newTraveler1 = await Travelers.insert({ name: 'Emerson'});
+
+           
+            await Travelers.remove(newTraveler1.id)
+            const traveler = await db('travelers');
+
+            expect(traveler).toHaveLength(1);
+        });
     })
     
 });

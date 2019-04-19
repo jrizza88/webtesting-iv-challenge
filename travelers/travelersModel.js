@@ -3,7 +3,7 @@ const db = require('../data/dbConfig');
 module.exports = {
     insert,
     remove,
-    // getAll
+    getAll
 };
 
 async function insert(traveler) {
@@ -18,4 +18,8 @@ function remove(id) {
     return db('travelers')
         .where({ id })
         .del()
+}
+
+function getAll() {
+    return db('travelers');
 }

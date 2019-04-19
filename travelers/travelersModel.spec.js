@@ -47,5 +47,14 @@ describe('The Travelers Model', () => {
             expect(traveler).toHaveLength(1);
         });
     })
-    
+
+    describe('The delete function', () => {
+        it('should return list of all travelers', async () => {
+            await Travelers.getAll()
+
+           const travelers = db('travelers');
+
+           expect(travelers).toBeTruthy()
+        });
+    });
 });

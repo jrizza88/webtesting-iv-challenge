@@ -20,7 +20,6 @@ describe('The Travelers Model', () => {
 
         it('should return the traveler by id', async () => {
 
-
             const traveler = await Travelers.insert({ name: 'Ryan'})
 
             expect(traveler.id).toBe(1);
